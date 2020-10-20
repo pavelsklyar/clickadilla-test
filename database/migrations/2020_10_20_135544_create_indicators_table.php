@@ -15,6 +15,7 @@ class CreateIndicatorsTable extends Migration
     {
         Schema::create('indicators', function (Blueprint $table) {
             $table->id();
+            $table->string("type");
             $table->text("value");
             $table->timestamps();
         });
