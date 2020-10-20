@@ -69,13 +69,23 @@
                 <li>
                     <div class="route">GET: {{ route("indicators.get", ["id" => "some_id"], false) }}</div>
                     <div class="route-description">
-                        <p>Получение значения по ID. В ответ приходит JSON со структурой { success: <span class="value">true</span>, data: { id: <span class="value">value</span>, value: <span class="value">value</span> }}.</p>
+                        <p>Получение значения по ID. В ответ приходит JSON со структурой <br>
+                            {
+                            success: <span class="value">true</span>,
+                            data: {
+                            id: <span class="value">value</span>,
+                            type: <span class="value">value</span>,
+                            value: <span class="value">value</span>,
+                            created_at: <span class="value">value</span>,
+                            updated_at: <span class="value">value</span>
+                            }
+                            }.</p>
                         <p>Есть возможность указать тип и длину генерируемого значения. <br>
-                            Для указания длины нужно передать ключ length с нужным значением (целое число). <br>
-                            Для указания типа нужно передать ключ type с нужным значением. Доступные значения:</p>
+                            Для указания длины нужно передать ключ <span class="value">length</span> с нужным значением (целое число). <br>
+                            Для указания типа нужно передать ключ <span class="value">type</span> с нужным значением. Доступные значения:</p>
                         <ul class="values-ul">
                             <li><span class="value">string</span> - для генерации строки</li>
-                            <li><span class="value">integer</span> - для генерации целочисленного значения</li>
+                            <li><span class="value">numeric</span> - для генерации целочисленного значения</li>
                             <li><span class="value">guid</span> - для генерации GUID</li>
                             <li><span class="value">alphanumeric</span> - для генерации цифробуквенной строки</li>
                         </ul>
