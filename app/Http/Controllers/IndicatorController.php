@@ -44,8 +44,27 @@ class IndicatorController extends Controller
         }
     }
 
-    public function get(Request $request, $id)
+    public function get($id)
     {
+        $indicator = Indicator::find($id);
 
+        if ($indicator) {
+            return new JsonResponse([
+                'success' => true,
+                'data' => [
+                    'id' => $indicator->id,
+                    'type' => $indicator->type,
+                    'value' => $indicator->value,
+                    'created_at' => $indicator->created_at,
+                    'updated_at' => $indicator->updated_at,
+                ]
+            ]);
+        }
+        else {
+            return new JsonResponse([
+                'success' => false,
+                'error' => "Индикатора с таким ID не существует!"
+            ]);
+        }
     }
 }
