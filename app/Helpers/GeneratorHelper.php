@@ -15,7 +15,7 @@ class GeneratorHelper
                 return self::generateString($length);
             case "alphanumeric":
                 return self::generateString($length, true);
-            case "integer":
+            case "numeric":
                 return self::generateInteger($length);
             case "guid":
                 return self::generateGuid();
@@ -45,10 +45,13 @@ class GeneratorHelper
 
     private static function generateInteger($length)
     {
-        $min = pow(10, $length - 1);
-        $max = pow(10, $length) - 1;
+        $integer = "";
 
-        return rand($min, $max);
+        for ($i = 0; $i < $length; $i++) {
+            $integer .= rand(0, 9);
+        }
+
+        return $integer;
     }
 
     private static function generateGuid()

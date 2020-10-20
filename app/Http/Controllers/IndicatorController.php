@@ -14,6 +14,13 @@ class IndicatorController extends Controller
         $type = !is_null($request->input("type")) ? $request->input("type") : "string";
         $length = !is_null($request->input("length")) ? $request->input("length") : 15;
 
+        if ($length <= 0) {
+            return new JsonResponse([
+                'success' => false,
+                'error' => "Длина должна быть больше 0!"
+            ]);
+        }
+
         $generated = GeneratorHelper::generate($type, $length);
 
         if (is_array($generated)) {
